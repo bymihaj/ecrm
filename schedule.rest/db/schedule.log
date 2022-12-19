@@ -1,0 +1,5 @@
+/*C3*/SET SCHEMA PUBLIC
+drop table if exists schedule CASCADE 
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table schedule (id bigint not null, group_level varchar(255), group_size integer not null, minut_duration integer not null, start timestamp, primary key (id))
