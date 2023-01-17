@@ -1,0 +1,26 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1> Lesson detail: </h1>
+    <p> Begin at </p>
+    <p th:text="${schedule.start}" />
+    <p> Lesson duration, minutes: </p> 
+    <p th:text="${schedule.minutDuration}"</p>
+    <p> Level </p>
+    <p th:text="${schedule.groupLevel}"</p>   
+    
+    <form action="#" th:action="@{/registrationConfirm}" th:object="${student}" method="post">
+        <p th:if="${error_form}" th:text="${error_form}" class="error" />
+        <input type="hidden" th:value="*{lessonId}" name="lessonId" />
+        <p> Phone number: </p>
+        <input type="text" th:field="*{phone}" />
+        <p th:if="${error_phone}" th:text="${error_phone}" class="error" />
+        <p><input type="submit" value="Confirm" />
+    </form> 
+</body>

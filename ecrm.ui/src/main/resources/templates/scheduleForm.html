@@ -1,0 +1,28 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" th:action="@{/schedule}" th:object="${schedule}" method="post">
+        <input type="hidden" th:value="*{id}" name="id" />
+        
+        <p> Begin at <input type="datetime-local" th:field="*{stringStart}"/> </p>
+        <p th:if="${error_stringStart}" th:text="${error_stringStart}" class="error" />
+        <p th:if="${error_start}" th:text="${error_start}" class="error" />
+        
+        <p> Lesson duration, minutes: <input type="text" th:field="*{minutDuration}"/> </p>
+        <p th:if="${error_minutDuration}" th:text="${error_minutDuration}" class="error" />
+        
+        <p> Level <input type="text" th:field="*{groupLevel}" /> </p>
+        <p th:if="${error_groupLevel}" th:text="${error_groupLevel}" class="error" />
+        
+        <p> Group size: <input type="text" th:field="*{groupSize}"/> </p>
+        <p th:if="${error_groupSize}" th:text="${error_groupSize}" class="error"/>
+        
+        <p><input type="submit" value="Submit" />
+    </form>
+</body>

@@ -7,23 +7,31 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-// TODO REF move to core/common
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 
 @Entity
 @Table(name="schedule")
-public class Schedule {
+public class ScheduleDTO {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     
+    @Future(message="Should be in a future")
     private Date start;
+    
+    @Positive(message="What is lesson duratin?")
     private int minutDuration;
+    
+    @NotBlank(message="What is group level?")
     private String groupLevel;
+    
+    @Positive(message="What is group size?")
     private int groupSize;
     
-    public Schedule() {}
+    public ScheduleDTO() {}
 
     public long getId() {
         return id;

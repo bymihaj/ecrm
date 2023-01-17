@@ -1,0 +1,29 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1>Do you want to remove this lesson?</h1>
+    
+    <p> Begin at </p>
+    <p th:text="${schedule.start}" />
+    
+        
+        
+        <p> Lesson duration, minutes: </p> 
+        <p th:text="${schedule.minutDuration}"</p>
+    
+        
+        <p> Level </p>
+        <p th:text="${schedule.groupLevel}"</p>
+    
+        
+        <p> Group size: </p>
+        <p th:text="${schedule.groupSize}"</p>
+        
+    <p> 
+        <form action="#" th:action="@{/scheduleRemoveConfirm/}+${schedule.id}" method="get">
+            <input type="submit" value="Yes"/>
+        </form>
+    </p>    
+    
+</body>

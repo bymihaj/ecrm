@@ -1,0 +1,29 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <table>
+    <tr>
+        <th>Start</th>
+        <th>Duration</th>
+        <th>Group level</th>
+        <th>Group size</th>
+        <th>Registered students</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr th:each="schedule: ${array}">
+        <td th:text="${#dates.format(schedule.start, 'dd-MM-yyyy HH:mm')}" />
+        <td th:text="${schedule.minutDuration}" />
+        <td th:text="${schedule.groupLevel}" />
+        <td th:text="${schedule.groupSize}" />
+        <td th:text="${schedule.studentCount}" />
+        <td><a th:href="@{/classRoom/}+${schedule.id}">List</a></td>
+        <td>
+        <form action="#" th:action="@{/scheduleRemove/}+${schedule.id}" method="get">
+            <input type="submit" value="Remove"/>
+        </form>
+        </td> 
+    </tr>
+    </table>
+</body>

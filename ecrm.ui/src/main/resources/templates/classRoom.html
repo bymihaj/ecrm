@@ -1,0 +1,13 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Phone</th>
+        </tr>
+        <tr th:each="student: ${array}">
+            <td th:text="${student.phone}" />
+        </tr>
+    </table>
+</body>

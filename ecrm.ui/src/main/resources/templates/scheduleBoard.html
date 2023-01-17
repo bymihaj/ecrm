@@ -1,0 +1,25 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <table>
+    <tr>
+        <th>Start</th>
+        <th>Duration</th>
+        <th>Group level</th>
+        <th>Group size</th>
+        <th/>
+    </tr>
+    <tr th:each="schedule: ${array}">
+        <td th:text="${#dates.format(schedule.start, 'dd-MM-yyyy HH:mm')}" />
+        <td th:text="${schedule.minutDuration}" />
+        <td th:text="${schedule.groupLevel}" />
+        <td th:text="${schedule.groupSize}" />
+        <td>
+        <form action="#" th:action="@{/registration/}+${schedule.id}" method="get">
+            <input type="submit" value="Sign Up"/>
+        </form>
+        </td> 
+    </tr>
+    </table>
+</body>
