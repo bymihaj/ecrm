@@ -1,0 +1,10 @@
+*.classpath
+*.project
+*.setting
+
+*/.settings/
+
+*.lck
+*.log
+*.script
+/db/*.properties

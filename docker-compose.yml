@@ -1,0 +1,19 @@
+services:
+    schedule:
+        image: schedule.rest:0.0.1-SNAPSHOT
+        container_name: schedule
+        ports:
+            - 8081:8081
+    student:
+        image: student.rest:0.0.1-SNAPSHOT
+        container_name: student
+        ports:
+            - 8082:8082
+    ui:
+        image: ecrm.ui:0.0.1-SNAPSHOT
+        container_name: ui
+        depends_on:
+            - schedule
+            - student
+        ports:
+            - 8080:8080
