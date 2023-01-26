@@ -1,18 +1,34 @@
 services:
+    cf :
+        image: config.server:0.0.1-SNAPSHOT
+        container_name: config
+        ports:
+            - 8083:8083
     schedule:
         image: schedule.rest:0.0.1-SNAPSHOT
         container_name: schedule
+        environment:
+            - config.url=cf:8083
         ports:
             - 8081:8081
+        depends_on:
+            - cf
     student:
         image: student.rest:0.0.1-SNAPSHOT
         container_name: student
+        environment:
+            - config.url=cf:8083
         ports:
             - 8082:8082
+        depends_on:
+            - cf    
     ui:
         image: ecrm.ui:0.0.1-SNAPSHOT
         container_name: ui
+        environment:
+            - config.url=cf:8083
         depends_on:
+            - cf
             - schedule
             - student
         ports:

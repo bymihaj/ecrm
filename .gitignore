@@ -8,3 +8,6 @@
 *.log
 *.script
 /db/*.properties
+*/db/
+
+*/target/
